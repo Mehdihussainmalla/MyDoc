@@ -70,8 +70,12 @@ const Banner = () => {
 
   return (
     <>
-      <FlatList
-        ></FlatList>
+      <FlatList>
+
+
+
+        
+      </FlatList>
         </>
   )
 }

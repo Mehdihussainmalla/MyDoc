@@ -9,7 +9,14 @@ import {
 } from 'react-native';
 import React from 'react';
 
+
 const Listitems = () => {
+  const splash=[{key:'1',image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Jw4zQSxHtAKGtPALM-ghOpzdz0BgyGzjzQ&usqp=CAU'},
+{key:'2',
+image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRez5VUe7oQKGhaHWIzrVYVbAHHGYbRa6kcMw&usqp=CAU'},
+{key:'3',image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYXZZBL2MumBtIwSNAYXDfDwdkaDK44rfQpLYj5BmcJrTSP2We2S2mNSMUHUmaGgxnh4I&usqp=CAU'},
+]
+
   const names = [
     {
       key: '1',
@@ -139,12 +146,33 @@ const Listitems = () => {
   ];
 
   return (
-  
-
-
     <View>
-      <FlatList
-        style={{marginBottom: 50, paddingTop: 5,}}
+
+<FlatList
+       style={{marginBottom:2, paddingTop:5,
+      //flexDirection:'row'
+    }}
+        keyExtractor={key => {
+          return key.key;
+        }}
+        horizontal
+        //numColumns={3}
+        data={splash}
+        renderItem={({item}) => {
+          return (
+            
+            <TouchableOpacity>
+                <View style={styles.splashview}>
+                  <Image style={styles.splash} source={{uri: item.image}} />
+
+                </View>
+              </TouchableOpacity>
+            
+          );
+          }}
+      />
+          <FlatList
+        style={{marginBottom:4, paddingTop:5,}}
         keyExtractor={key => {
           return key.key;
         }}
@@ -198,7 +226,19 @@ borderRadius:5,
 flex:1,
     justifyContent: 'space-between',
     backgroundColor: '#ffff',
+  
   },
+  splashview:{
+   
+    flexDirection:'row',
+    height:170,
+    width:390,
+    borderBottomRightRadius:10,
+    justifyContent:'space-between',
+    
+    
+  },
+  
   images: {
     height: 90,
     marginTop: 5,
@@ -208,6 +248,14 @@ flex:1,
     //justifyContent:'center',
     alignItems: 'center',
     borderRadius: 5,
+  },
+  splash:{
+height:170,
+width:'100%',
+borderEndWidth:5,
+borderRadius:10,
+    borderStartWidth:1,
+
   },
   title: {
     //margin:3,

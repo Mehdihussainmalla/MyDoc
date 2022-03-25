@@ -3,7 +3,7 @@ import{createBottomTabNavigator}from '@react-navigation/bottom-tabs'
 import ViewNativeComponent from 'react-native/Libraries/Components/View/ViewNativeComponent'
 import { NavigationContainer ,NavigationTab, Navigator, TabActions} from '@react-navigation/native'
 import Home from '../src/screens/Home/Home'
-import Card from '../src/screens/card/Card.js.js'
+import Cart from '../src/screens/card/Cart'
 import Profile  from '../src/screens/Profile/Profile'
 import {View,Text,Image,TouchableOpacity} from 'react-native'
 function Footer() {
@@ -20,7 +20,7 @@ function Footer() {
 <Image source={require('../src/assets/Home.png')} style={{width:30, height:30, top:5, }} />
 
   )}}/>
-  <Tab.Screen name="Card" component={Card}  options={{headerShown:false, tabBarIcon:({focused})=>(
+  <Tab.Screen name="Cart" component={Cart}  options={{headerShown:false, tabBarIcon:({focused})=>(
     <Image source={require('../src/assets/Addtocard.jpg')} style={{width:30, height:30, top:5, }} />
   )}}/>
   <Tab.Screen name="Profile" component={Profile} options={{headerShown:false, tabBarIcon:({focused})=>(

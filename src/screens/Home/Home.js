@@ -10,14 +10,14 @@ const Home = () => {
       
          
           <Header/>
-        
+        <ScrollView>
           
          
           
           
           <Listitems/>
           
-         
+          </ScrollView>
           </SafeAreaView>
         
   )
