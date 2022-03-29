@@ -9,17 +9,22 @@ import {
   TextInput,
 } from 'react-native';
 
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.leftcontainer}>
-        <TouchableOpacity>
-          <View style={styles.hamburgerview}>
-            <Image
-              style={styles.hamburgurimage}
-              source={require('../assets/hamburger-icon.png')}></Image>
-          </View>
-        </TouchableOpacity>
+
+  
+        <View style={styles.hamburgerview}>
+        <TouchableOpacity 
+        onPress={()=> navigation.toggleDrawer('Drawer')}
+        >
+          <Image
+            style={styles.hamburgurimage}
+            source={require('../assets/hamburger-icon.png')}></Image>
+            </TouchableOpacity>
+        </View>
+        
 
         <View style={styles.icon}>
           <Image
@@ -34,15 +39,13 @@ const Header = () => {
       </View>
 
       <View style={styles.righcontainer}>
-        <TouchableOpacity>
-          <View style={styles.searchicon}>
-            <Image
-              source={require('../assets/search-icon.png')}
-              style={styles.searchiconlogo}></Image>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.searchicon}>
+          <Image
+            source={require('../assets/search-icon.png')}
+            style={styles.searchiconlogo}></Image>
+        </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
           <View style={styles.cardview}>
             <Image
               source={require('../assets/cart-icon.png')}
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
     height: 45,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'blue',
+    backgroundColor: '#87CEEB',
   },
 
   leftcontainer: {

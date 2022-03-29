@@ -2,18 +2,20 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   return (
     <SafeAreaView>
-      <View  style={{height:'100%', width:'100%'}}>
+      <View style={{height: '100%', width: '100%', backgroundColor: '#ffff'}}>
         <View style={styles.profilehead}>
-          <Image
-            source={require('../../assets/left-arrow.png')}
-            style={styles.backlogo}></Image>
-          
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Image
+              source={require('../../assets/left-arrow.png')}
+              style={styles.backlogo}></Image>
+          </TouchableOpacity>
+
           <Text style={styles.profilename}>My Profile</Text>
 
-          <View  >
+          <View>
             <Image
               source={require('../../assets/profile-icon.png')}
               style={styles.profileiconn}></Image>
@@ -21,11 +23,11 @@ const Profile = () => {
         </View>
 
         <View style={styles.pageview}>
-          <View   style={styles.iconview}>
-          <Image
-            source={require('../../assets/mehdi.jpg')}
-            style={styles.profileimage}></Image>
-            </View>
+          <View style={styles.iconview}>
+            <Image
+              source={require('../../assets/pp.png')}
+              style={styles.profileimage}></Image>
+          </View>
 
           <Text style={styles.name}>Mehdi Hussain Malla</Text>
           <Text style={styles.email}>mehdihussainmalla@gmail.com</Text>
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
   profilehead: {
     height: 50,
     width: '100%',
-    backgroundColor: 'blue',
+    backgroundColor: '#87CEEB',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -115,14 +117,13 @@ const styles = StyleSheet.create({
     color: '#FFFF',
     // fontWeight:'bold'
   },
-  iconview:{
-    height:150,
-     width:150,
-     //backgroundColor:'',
-    margin:5,
-     paddingBottom:10,
-     borderRadius:45,
-
+  iconview: {
+    height: 150,
+    width: 150,
+    //backgroundColor:'',
+    margin: 5,
+    paddingBottom: 10,
+    borderRadius: 45,
   },
   profileiconn: {
     height: 25,
@@ -132,30 +133,32 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   pageview: {
-    marginBottom:15,
+    //paddingTop:10,
+    //marginBottom: 15,
     backgroundColor: '#ffff',
-    height: '100%',
+    height: '30%',
     width: '100%',
     //justifyContent:'center',
     //flexDirection:'row',
     alignItems: 'center',
-    //backgroundColor: '#ffff',
   },
   profileimage: {
-    height: 150,
+    paddingTop: 10,
+    height: 130,
     borderRadius: 50,
     flexDirection: 'row',
     justifyContent: 'center',
-    width: 150,
-    paddingTop: 2,
+    width: 145,
+    // paddingTop: 2,
     alignItems: 'center',
   },
   name: {
-    paddingTop: 4,
+    //paddingTop: 4,
     fontStyle: 'italic',
     fontSize: 18,
     color: 'black',
     fontWeight: 'bold',
+    //marginBottom:20,
   },
   email: {
     fontWeight: '200',
@@ -174,160 +177,167 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 14,
     color: 'black',
-    textAlign:'center'
+    textAlign: 'center',
   },
   privacy: {
     height: 40,
-    justifyContent: 'space-between',
-    width: '85%',
+    justifyContent: 'space-evenly',
+    width: '60%',
     flexDirection: 'row',
   },
   privacytext: {
     fontSize: 17,
     marginRight: 55,
     color: 'black',
-    margin: 4,
+    margin: 8,
+    textAlign: 'left',
     fontWeight: '300',
   },
   privacyimage: {
     height: 25,
-    width: 27,
-    marginRight: 12,
-    margin:4,
-    paddingRight:14,
+    width: 20,
+    marginRight: 10,
+    margin: 4,
+    paddingRight: 14,
   },
   profileicon: {
     height: 25,
-    width: 27,
-    paddingTop: 10,
+    width: 25,
+    paddingTop: 8,
     margin: 4,
   },
 
   purchase: {
-    margin: 5,
-    height: 45,
-    justifyContent: 'space-between',
-    width: '85%',
+    margin: 3,
+    height: 40,
+    justifyContent: 'space-evenly',
+    width: '60%',
     flexDirection: 'row',
   },
   purchasetext: {
     fontSize: 17,
     color: 'black',
     margin: 7,
+    marginRight: 10,
     fontWeight: '300',
   },
   purchasehistory: {
     height: 25,
     margin: 5,
     width: 27,
-    marginRight: 30,
+    //marginRight: 15,
   },
   purchaseimage: {
     height: 25,
-    width: 27,
-    paddingTop: 8,
-    margin: 4,
+    width: 23,
+    paddingTop: 20,
+    margin: 5,
   },
 
   helpsupport: {
-    margin: 4,
+    //margin: 4,
     height: 45,
-    justifyContent: 'space-between',
-    width: '85%',
+    justifyContent: 'space-evenly',
+    width: '60%',
     flexDirection: 'row',
   },
   helpetext: {
     fontSize: 17,
     color: 'black',
     fontWeight: '300',
-    margin: 7,
+    margin: 3,
   },
   support: {
     height: 25,
     margin: 5,
-    width: 27,
-    marginRight: 20,
+    width: 25,
+    //marginRight: 20,
   },
   helpsupportimage: {
     height: 25,
     width: 27,
-    paddingTop: 10,
-    margin: 4,
+    paddingTop: 7,
+    margin: 2,
   },
 
   settings: {
-    margin: 4,
+    //margin: 4,
     height: 45,
-    justifyContent: 'space-between',
-    width: '85%',
+    justifyContent: 'space-evenly',
+    width: '60%',
     flexDirection: 'row',
   },
   settingtext: {
     fontSize: 17,
     color: 'black',
-    marginRight: 55,
-    margin: 7,
+    marginRight: 50,
+    margin: 4,
     fontWeight: '300',
   },
   settinglogo: {
     height: 25,
-    margin: 5,
-    width: 27,
-    margin:4,
-    marginRight: 10,
+    margin: 4,
+    width: 25,
+
+    //marginRight: 10,
   },
   settingdirection: {
     height: 25,
-    width: 27,
+    width: 23,
     paddingTop: 10,
     margin: 4,
   },
 
   invite: {
-    margin: 3,
-    height: 45,
-    justifyContent: 'space-between',
-    width: '85%',
+    // margin: 3,
+    height: 40,
+    justifyContent: 'space-evenly',
+    width: '55%',
     flexDirection: 'row',
   },
   invitetext: {
     fontSize: 17,
     color: 'black',
     margin: 7,
+    paddingRight: 30,
     fontWeight: '300',
   },
   invitelogo: {
     height: 25,
     margin: 5,
-    width: 27,
-    marginRight: 10,
+    width: 23,
+
+    //marginRight: 10,
   },
   invitereference: {
-    height:25,
-    width: 27,
-    paddingTop: 10,
-    margin: 4,
+    height: 25,
+    width: 23,
+    //paddingTop: 10,
+    margin: 7,
+    //paddingLeft:10,
   },
 
   logout: {
-    margin: 3,
-    height: 45,
-    //justifyContent:'space-between',
-    width: '85%',
+    height: 50,
+    //justifyContent:'space-evenly',
+    width: '60%',
+    paddingLeft: 12,
     flexDirection: 'row',
   },
   logouttext: {
     fontSize: 17,
     color: 'black',
-    margin: 7,
-    paddingLeft: 85,
+    //margin: 7,
+    paddingTop: 5,
+    paddingLeft: 30,
     fontWeight: '300',
   },
   logoutlogo: {
     height: 25,
     margin: 5,
-    width: 27,
-    marginRight: 1,
+    width: 24,
+    //marginRight: 1,
+    // marginBottom:10,
   },
 });
 
